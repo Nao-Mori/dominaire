@@ -1,91 +1,85 @@
 import React from "react";
 import Main from "./component/Main";
 
-class Top extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      top: true,
-      name1: "Player1",
-      name2: "Player2",
-      name3: "Player3",
-      mode: "No CPU"
-    };
-  }
+function Top () {
+  const [top,setTop]= React.useState(true)
+  const [name1, setName1] = React.useState("Nao")
+  const [name2, setName2] = React.useState("Taro")
+  const [name3, setName3] = React.useState("Saki")
+  const [mode, setMode] = React.useState("2 CPU")
 
-  start = () => {
-    this.setState({ top: false });
-  };
-  changename = event => {
-    this.setState({ [event.target.name]: event.target.value });
-  };
-
-  checkin = event => {
+  const checkin = event => {
     if (event.target.value.length > 7) {
       event.preventDefault();
     }
   };
 
-  switchmode = () => {
-    switch (this.state.mode) {
-      case "No CPU":
-        this.setState({ mode: "1 CPU" });
-        break;
-      case "1 CPU":
-        this.setState({ mode: "2 CPU" });
-        break;
-      case "2 CPU":
-        this.setState({mode: "No CPU"})
-        break;
-      default:
-        break;
-    }
-  };
-
-  quit = () => {
-    this.setState({ top: true });
-  };
-
-  render() {
     return (
       <div>
-        {this.state.top ? (
+        {top ? (
           <div>
-            <img alt="log" src="/logo.png" style={{height:"100px",widht:"auto",marginTop:"90px",marginBottom:"70px"}}/>
+            <img alt="log" src="/logo.png" style={{height:"auto",maxWidth:"500px",marginTop:"50px",marginBottom:"30px"}}/>
             <br/>
-            <input
-              className="input"
-              name="name1"
-              value={this.state.name1}
-              onChange={this.changename}
-              onKeyPress={this.checkin}
-            ></input>
-            <input
-              className="input"
-              name="name2"
-              value={this.state.name2}
-              onChange={this.changename}
-              onKeyPress={this.checkin}
-            ></input>
-            <input
-              className="input"
-              name="name3"
-              value={this.state.name3}
-              onChange={this.changename}
-              onKeyPress={this.checkin}
-            ></input>
-            <button className="btn" onClick={this.switchmode}>
-              {this.state.mode}
+            <div style={{maxWidth:"500px",margin:"0 auto",backgroundColor:"rgba(240,240,240,0.5)",padding:"20px",borderRadius:"10px"}}>
+            <h2 style={{marginTop:"0"}}>1. CHANGE NAMES AS YOU LIKE</h2>
+            <div style={{display:"flex", textAlign:"left",maxWidth:"100vw"}}>
+              <div style={{marginLeft:"auto"}}>
+                <h4 style={{margin:"2px"}}>PLAYER1</h4>
+                <input
+                  className="input"
+                  name="setName1"
+                  value={name1}
+                  onChange={e=>setName1(e.target.value)}
+                  onKeyPress={checkin}
+                />
+              </div>
+              <div style={{margin:"0 25px"}}>
+                <h4 style={{margin:"2px"}}>PLAYER2</h4>
+                <input
+                  className="input"
+                  name="setName2"
+                  value={name2}
+                  onChange={e=>setName2(e.target.value)}
+                  onKeyPress={checkin}
+                />
+              </div>
+              <div style={{marginRight:"auto"}}>
+                <h4 style={{margin:"2px"}}>PLAYER3</h4>
+                <input
+                  className="input"
+                  name="setName3"
+                  value={name3}
+                  onChange={e=>setName3(e.target.value)}
+                  onKeyPress={checkin}
+                />
+              </div>
+            </div>
+            <br/>
+            <h2 style={{marginTop:"10px"}}>2. CHOOSE MODE</h2>
+            <button className="topbtn" style={{backgroundColor:mode==="2 CPU"?"rgb(209, 127, 49)":null}}
+            onClick={()=>setMode("2 CPU")}>
+              2 CPU
             </button>
-            <button className="btn" onClick={this.start}>
-              Start
+            <button className="topbtn" style={{backgroundColor:mode==="1 CPU"?"rgb(209, 127, 49)":null,margin:"0 35px"}}
+            onClick={()=>setMode("1 CPU")}>
+              1 CPU
             </button>
-            <p style={{ marginTop: "50px" }}></p>
+            <button className="topbtn" style={{backgroundColor:mode==="0 CPU"?"rgb(209, 127, 49)":null}}
+            onClick={()=>setMode("0 CPU")}>
+              0 CPU
+            </button>
+            <br/>
+            <h2 style={{marginTop:"25px"}}>3. UM... DUH...</h2>
+            <button className="btn" style={{backgroundColor:"rgb(207, 82, 33)"}} onClick={()=>setTop(false)}>
+              START
+            </button>
+            </div>
+            <p style={{ marginTop: "40px" }}></p>
             <div
               style={{
-                backgroundColor: "white",
-                width: "780px",
-                height: "250px",
+                backgroundColor: "rgba(255,255,255,0.8)",
+                maxWidth: "500px",
+                height: "200px",
                 margin: "auto",
                 textAlign: "left",
                 overflowY: "scroll",
@@ -112,11 +106,16 @@ class Top extends React.Component {
             
           </div>
         ) : (
-          <Main quit={this.quit} state={this.state} mode={this.state.mode} />
+          <Main
+          quit={()=>setTop(true)} 
+          mode={mode}
+          name1={name1}
+          name2={name2}
+          name3={name3}
+          />
         )}
-      </div>
-    );
-  }
+    </div>
+  )
 }
 
 export default Top;

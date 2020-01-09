@@ -13,9 +13,13 @@ code {
     monospace;
 }
 
+button{
+  border: none;
+}
+
 button:hover{
   cursor: pointer;
-  filter: brightness(75%);
+  filter: brightness(85%);
 }
 
 
@@ -197,9 +201,25 @@ button:hover{
 }
 
 .input{
-  width: 120px;
+  max-width: 120px;
   font-size: 26px;
+  border-radius: 3px;
+  padding:5px;
 }
+
+.topbtn {
+  padding:10px;
+  border: none;
+  font-size: 30px;
+  color: rgb(255, 255, 255);
+  background-color: rgb(90, 90, 90);
+  font-weight: bold;
+  border-radius: 25px;
+  outline: none;
+  border-radius: 15px;
+  transition: 0.3s color;
+}
+
 
 .btn {
   height: 100px;
