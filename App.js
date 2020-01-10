@@ -4,10 +4,10 @@ import Top from "./Top";
 
 
 function App() {
-  const [mobile, setMobile]=React.useState(true)
+  const [mobile, setMobile]=React.useState(false)
   React.useEffect(()=>{
-    if(typeof window.orientation==="undefined") setMobile(false)
-  },[mobile])
+    if(typeof window.orientation!=="undefined") setMobile(true)
+  },[])
   return (
     <div className="App">
       {mobile?

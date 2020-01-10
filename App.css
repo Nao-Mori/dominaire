@@ -5,7 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url(./image/bg.jpg);
+  background:linear-gradient(0.5turn,#89b7bd, #238592, #89b7bd);
 }
 
 code {
@@ -30,7 +30,7 @@ button:hover{
 .BG{
   position: absolute;
   background-color: #ffffff;
-  opacity: 0.5;
+  opacity: 0.3;
   top: 20%;
   left: 17%;
   height: 500px;
