@@ -5,7 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background:linear-gradient(0.5turn,#89b7bd, #238592, #89b7bd);
+  background:linear-gradient(0.5turn,#bdb989, #cca63d, #bdb989);
 }
 
 code {
@@ -25,16 +25,9 @@ button:hover{
 
 .App {
   text-align: center;
-}
-
-.BG{
-  position: absolute;
-  background-color: #ffffff;
-  opacity: 0.3;
-  top: 20%;
-  left: 17%;
-  height: 500px;
-  width: 1000px;
+  margin: 0 auto;
+  max-width: 600px;
+  padding:10px;
 }
 .BG2{
   margin: auto;
@@ -45,9 +38,7 @@ button:hover{
 
 .container{
   position: relative;
-  margin: 10px auto;
-  margin-top: 0px;
-  margin-left: 300px;
+  margin: 0 auto;
   width: 1400px;
   height: 700px;
 }
@@ -102,7 +93,7 @@ button:hover{
 
 .container3{
   color: rgb(255, 255, 255);
-  width: 200px;
+  width: 220px;
   height: auto;
   margin-top: 15px;
   margin-bottom: 0px;
@@ -116,20 +107,17 @@ button:hover{
 
 .container4{
   position: absolute;
-  background-color: white;
-  opacity: 0.5;
+  background-color: rgba(255,255,255,0.5);
   width: 250px;
-  height: 400px;
   top:20%;
   left:3.6%;
+  border-radius: 10px;
+  padding:15px
 }
 
 .container5{
-  position: absolute;
   width: 250px;
-  height: 400px;
-  top:30%;
-  left:5%;
+  height: 300px;
 }
 
 .wall{
@@ -357,7 +345,7 @@ button:hover{
 .dragon2{
   position: absolute;
   background-image: url(./image/dragon2.png);
-  height: 460px;
+  height: 450px;
   width: 600px;
 }
 .dragon2-2{

@@ -101,7 +101,7 @@ function Minigameover(state,setting,one,two,three){
           msg22 = state.name3 + " gets $" + state.prize * 3;
           mon22 = state.price3 + state.prize * 3;
         } else {
-          msg22= state.name3 + " ain't got not'n!"
+          msg22= state.name3 + " earns no money"
           mon22 = state.price3
         }
         //let newprize = state.prize * 2;
