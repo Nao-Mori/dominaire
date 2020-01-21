@@ -3,44 +3,34 @@ import React from "react";
 
 function Action(props) {
   return (
-    <div>
+    <div className="container-center">
+      <div className="container-action">
       {!props.state.rolling && !props.state.gogo ? (
-        <div className="containersmall">
-          <h1
-            style={{
-              fontSize: "50px",
-              marginTop: "8px"
-            }}
-          >
+        <div style={{maxWidth:"70vh",margin:"0 auto"}}>
+          <div className="container-textboard">
             {props.state.status}
-          </h1>
+          </div>
         </div>
       ) : null}
       {props.state.rolling ? (
-        <h1
+        <div
+          className="dice"
           style={{
-            position: "absolute",
-            top: "30%",
-            left: "47%",
             color: `rgb(${props.color})`,
-            fontSize: "150px"
           }}
         >
           {props.state.roll}
-        </h1>
+        </div>
       ) : null}
       {props.state.gogo ? (
-        <h1
+        <div
+          className="dice"
           style={{
-            position: "absolute",
-            top: "30%",
-            left: "47%",
             color: `rgb(${props.color})`,
-            fontSize: "150px"
           }}
         >
           {props.state.howmany}
-        </h1>
+        </div>
       ) : null}
       {!props.state.cpuplay ? (
         <div>
@@ -48,9 +38,6 @@ function Action(props) {
             <button
               className="btn"
               style={{
-                position: "absolute",
-                top: "53%",
-                left: "43%",
                 backgroundColor: `rgb(${props.color})`
               }}
               onClick={props.dice}
@@ -66,9 +53,6 @@ function Action(props) {
               className="smallbtn"
               id="1000"
               style={{
-                position: "absolute",
-                top: "53%",
-                left: "25%",
                 backgroundColor: `rgb(${props.color})`
               }}
               onClick={props.upgrader}
@@ -81,9 +65,6 @@ function Action(props) {
                 className="smallbtn"
                 id="2000"
                 style={{
-                  position: "absolute",
-                  top: "53%",
-                  left: "35%",
                   backgroundColor: `rgb(${props.color})`
                 }}
                 onClick={props.upgrader}
@@ -96,9 +77,6 @@ function Action(props) {
                 className="smallbtn"
                 id="3000"
                 style={{
-                  position: "absolute",
-                  top: "53%",
-                  left: "45%",
                   backgroundColor: `rgb(${props.color})`
                 }}
                 onClick={props.upgrader}
@@ -111,9 +89,6 @@ function Action(props) {
                 className="smallbtn"
                 id="4000"
                 style={{
-                  position: "absolute",
-                  top: "53%",
-                  left: "55%",
                   backgroundColor: `rgb(${props.color})`
                 }}
                 onClick={props.upgrader}
@@ -126,9 +101,6 @@ function Action(props) {
                 className="smallbtn"
                 id="5000"
                 style={{
-                  position: "absolute",
-                  top: "53%",
-                  left: "65%",
                   backgroundColor: `rgb(${props.color})`
                 }}
                 onClick={props.upgrader}
@@ -142,12 +114,9 @@ function Action(props) {
           {props.state.custommenu ? (
             <div>
               <button
-                className="mediumbtn"
+                className="smallbtn"
                 id="RealE"
                 style={{
-                  position: "absolute",
-                  top: "53%",
-                  left: "25%",
                   backgroundColor: `rgb(${props.color})`
                 }}
                 onClick={props.customer}
@@ -155,16 +124,10 @@ function Action(props) {
               >
                 Real Estate
               </button>
-              {props.state.RealE? <p className="hovermenu" style={{
-                  backgroundColor: "white"
-                }}>You can buy / takeover any shop with a discount depending on its value when landing</p> :null}
               <button
-                className="mediumbtn"
+                className="smallbtn"
                 id="Media"
                 style={{
-                  position: "absolute",
-                  top: "53%",
-                  left: "43%",
                   backgroundColor: `rgb(${props.color})`
                 }}
                 onClick={props.customer}
@@ -172,16 +135,10 @@ function Action(props) {
               >
                 Media
               </button>
-              {props.state.Media? <p className="hovermenu" style={{
-                  backgroundColor: "white"
-                }}>You can manipulate the reputation of any shop decreasing their value depending on its value when landing</p> :null}
               <button
-                className="mediumbtn"
+                className="smallbtn"
                 id="Gate"
                 style={{
-                  position: "absolute",
-                  top: "53%",
-                  left: "60.3%",
                   backgroundColor: `rgb(${props.color})`
                 }}
                 onClick={props.customer}
@@ -189,23 +146,22 @@ function Action(props) {
               >
                 Gate
               </button>
-              {props.state.Gate? <p className="hovermenu" style={{
-                  backgroundColor: "white"
-                }}>Creates a gate that charges others a small amount when passing / landing</p> :null}
+              <div className="container-map" style={{backgroundColor:"rgba(255,255,255,0.7)",padding:"5px",width:"80%",margin:"0 auto"}}>
+                {props.state.Gate?"Creates a gate that charges others a small amount when passing / landing"
+                :props.state.Media?"You can manipulate the reputation of any shop decreasing their value depending on its value when landing"
+                :props.state.RealE?"You can buy / takeover any shop with a discount depending on its value when landing":null}
+              </div>
             </div>
           ) : null}
 
           {!props.state.unmoved ? (
-            <div>
+            <div className="">
               {!props.state.chosen ? (
                 <div>
                   {props.state.upgradable ? (
                     <button
                       className="btn"
                       style={{
-                        position: "absolute",
-                        top: "53%",
-                        left: "26%",
                         backgroundColor: `rgb(${props.color})`
                       }}
                       onClick={props.upgrade}
@@ -217,9 +173,6 @@ function Action(props) {
                     <button
                       className="btn"
                       style={{
-                        position: "absolute",
-                        top: "53%",
-                        left: "43%",
                         backgroundColor: `rgb(${props.color})`
                       }}
                       onClick={props.buy}
@@ -231,9 +184,6 @@ function Action(props) {
                     <button
                       className="btn"
                       style={{
-                        position: "absolute",
-                        top: "53%",
-                        left: "43%",
                         backgroundColor: `rgb(${props.color})`
                       }}
                       onClick={props.discount}
@@ -245,9 +195,6 @@ function Action(props) {
                     <button
                       className="btn"
                       style={{
-                        position: "absolute",
-                        top: "53%",
-                        left: "43%",
                         backgroundColor: `rgb(${props.color})`
                       }}
                       onClick={props.gossip}
@@ -259,9 +206,6 @@ function Action(props) {
                     <button
                       className="btn"
                       style={{
-                        position: "absolute",
-                        top: "53%",
-                        left: "60.3%",
                         backgroundColor: `rgb(${props.color})`
                       }}
                       onClick={props.sell}
@@ -275,9 +219,7 @@ function Action(props) {
                 <button
                   className="btn"
                   style={{
-                    position: "absolute",
-                    top: "71%",
-                    left: "43%",
+                    marginTop: "1vw",
                     backgroundColor: `rgb(${props.color})`
                   }}
                   onClick={props.switchp}
@@ -289,9 +231,7 @@ function Action(props) {
                 <button
                   className="btn"
                   style={{
-                    position: "absolute",
-                    top: "71%",
-                    left: "43%",
+                    marginTop: "1vw",
                     backgroundColor: `rgb(${props.color})`
                   }}
                   onClick={props.cancel}
@@ -303,6 +243,7 @@ function Action(props) {
           ) : null}
         </div>
       ) : null}
+      </div>
     </div>
   );
 }
