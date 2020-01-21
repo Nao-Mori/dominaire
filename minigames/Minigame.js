@@ -5,7 +5,6 @@ import Zombiesound from "../sound/zombie.wav";
 import Zombiesound2 from "../sound/zombie2.wav";
 import Ghostsound2 from "../sound/ghost2.wav";
 import Dragonsound2 from "../sound/dragon2.wav";
-import BGM from "../sound/minibgm2.mp3"
 import Magesound from "../sound/mage.wav";
 import Magesound2 from "../sound/mage2.wav";
 import Golemsound from "../sound/golem.wav";
@@ -19,8 +18,6 @@ import Gurlsound4 from "../sound/gurl4.wav"
 import Gurlsound5 from "../sound/gurl5.wav"
 import Gurlsound6 from "../sound/gurl6.wav"
 
-
-const bgm = new Audio(BGM)
 const ghostsound = new Audio(Ghostsound);
 const dragonsound = new Audio(Dragonsound);
 
@@ -62,7 +59,7 @@ class Minigame extends React.Component {
       dead: 10,
       ghost: [2, 5],
       zombie: [40, 37],
-      dragon: [5, 55],
+      dragon: [5, 65],
       before: true,
       winner: "",
       onechose: "",
@@ -97,7 +94,7 @@ class Minigame extends React.Component {
       dead: 10,
       ghost: [2, 5],
       zombie: [40, 37],
-      dragon: [5, 55],
+      dragon: [5, 65],
       before: true,
       prize: this.props.state.prize,
     });
@@ -121,30 +118,24 @@ class Minigame extends React.Component {
     } else{
       this.setState({zorg: "Zombie"})
     }
-    if(this.props.state.bgm==="ON"){
-      bgm.loop = true
-      bgm.play()
-    }
-    
-    
   }
 
   dragonmove() {
     setTimeout(
       function() {
-        this.setState({ dragon: [10, 45] });
+        this.setState({ dragon: [10, 55] });
       }.bind(this),
       100
     );
     setTimeout(
       function() {
-        this.setState({ dragon: [15, 40] });
+        this.setState({ dragon: [15, 50] });
       }.bind(this),
       150
     );
     setTimeout(
       function() {
-        this.setState({ dragon: [20, 35] });
+        this.setState({ dragon: [20, 45] });
       }.bind(this),
       200
     );
@@ -156,7 +147,7 @@ class Minigame extends React.Component {
     );
     setTimeout(
       function() {
-        this.setState({ dragon: [10, 45] });
+        this.setState({ dragon: [10, 50] });
       }.bind(this),
       300
     );
@@ -171,37 +162,37 @@ class Minigame extends React.Component {
   dragonmove2() {
     setTimeout(
       function() {
-        this.setState({ dragon: [5, 45] });
+        this.setState({ dragon: [5, 55] });
       }.bind(this),
       100
     );
     setTimeout(
       function() {
-        this.setState({ dragon: [5, 35] });
+        this.setState({ dragon: [5, 45] });
       }.bind(this),
       150
     );
     setTimeout(
       function() {
-        this.setState({ dragon: [5, 25] });
+        this.setState({ dragon: [5, 35] });
       }.bind(this),
       200
     );
     setTimeout(
       function() {
-        this.setState({ dragon: [5, 35] });
+        this.setState({ dragon: [5, 45] });
       }.bind(this),
       250
     );
     setTimeout(
       function() {
-        this.setState({ dragon: [5, 45] });
+        this.setState({ dragon: [5, 55] });
       }.bind(this),
       300
     );
     setTimeout(
       function() {
-        this.setState({ dragon: [5, 55] });
+        this.setState({ dragon: [5, 60] });
       }.bind(this),
       350
     );
@@ -414,8 +405,6 @@ class Minigame extends React.Component {
     if (this.state.winner === this.state.threechose) {
       three = this.state.winner
     }
-    bgm.pause()
-    bgm.currentTime = 0
     this.props.minigameover(one, two, three);
   }
 
@@ -1043,61 +1032,79 @@ class Minigame extends React.Component {
 
   render() {
     return (
-      <div >
-          <div className="wall"></div>
-        <h1 className="containersmall2">{this.state.message}</h1>
-
+      <div>
+        <div className="container-ranking message" style={{marginBottom:"1vw",marginTop:"2vw"}}>{this.state.message}</div>
+      <div style={{margin:"0 auto", position:"relative",minHeight:"70vh"}}>
+        {this.state.before?<div style={{position:"absolute", top:"0%",height:"100%",width:"100%",backgroundColor:"rgba(0,0,0,0.5)"}}/>:null}
         {this.state.before ? (
-          <div>
+          <div style={{display:"flex",flexWrap:"wrap"}}>
             {this.state.gorm==="Mage"?
-            <div className="ghostdesc">
-            <h1 className="nomargin">Mage</h1>
-            <h3 className="nomargin">HP: {this.state.ghosthp}</h3>
-            <h3 className="nomargin">DM: 700-900</h3>
-            <h3 className="nomargin">SP: Mega Drain (Damage+Heal)</h3>
-            <h3 className="nomargin">Prize: ${this.state.prize*1.5}</h3>
-            
-          </div>
+            <div className="card-explain">
+              Mage<br/>
+              <img alt="icon" src={`/images/${this.state.gorm}.png`} style={{width:"100%"}}/>
+              HP: {this.state.ghosthp}<br/>
+              DM: 700-900<br/>
+              SP: Mega Drain (Damage+Heal)<br/>
+              Prize: ${this.state.prize*1.5}<br/>
+              {!this.state.chosen ? (
+              <button className="smallbtn" id="Mage" onClick={this.choose}>
+                Choose
+              </button>
+            ) : null}
+            </div>
             : this.state.gorm==="Ghost"?
-            <div className="ghostdesc">
-              <h1 className="nomargin">Ghost</h1>
-              <h3 className="nomargin">HP: {this.state.ghosthp}</h3>
-              <h3 className="nomargin">DM: 500-800</h3>
-              <h3 className="nomargin">SP: Hell Arm (Damagex2)</h3>
-              <h3 className="nomargin">Prize: ${this.state.prize*2}</h3>
-              
+            <div className="card-explain">
+                Ghost<br/>
+                <img alt="icon" src={`/images/${this.state.gorm}.png`} style={{width:"100%"}}/>
+                HP: {this.state.ghosthp}<br/>
+                DM: 500-800<br/>
+                SP: Hell Arm (Damagex2)<br/>
+                Prize: ${this.state.prize*2}<br/>
+                {!this.state.chosen ? (
+              <button className="smallbtn" id="Ghost" onClick={this.choose}>
+                Choose
+              </button>
+            ) : null}
             </div>:
-            <div className="ghostdesc">
-            <h1 className="nomargin">Wizzard</h1>
-            <h3 className="nomargin">HP: {this.state.ghosthp}</h3>
-            <h3 className="nomargin">DM: 400-1200</h3>
-            <h3 className="nomargin">SP: Frozen Orb (Area Damage)</h3>
-            <h3 className="nomargin">Prize: ${this.state.prize}</h3>
-              </div>
+            <div className="card-explain">
+              Wizzard<br/>
+              <img alt="icon" src={`/images/${this.state.gorm}.png`} style={{width:"100%"}}/>
+              HP: {this.state.ghosthp}<br/>
+              DM: 400-1200<br/>
+              SP: Frozen Orb (Area Damage)<br/>
+              Prize: ${this.state.prize}<br/>
+              {!this.state.chosen ? (
+              <button className="smallbtn" id="Wizzard" onClick={this.choose}>
+                Choose
+              </button>
+            ) : null}
+            </div>
           }
             
             {this.state.zorg==="Zombie"?
-            <div className="zombiedesc">
-            <h1 className="nomargin">Zombie</h1>
-            <h3 className="nomargin">HP: {this.state.zombiehp}</h3>
-            <h3 className="nomargin">DM: 300-600</h3>
-            <h3 className="nomargin">SP: Replication (Heal)</h3>
-            <h3 className="nomargin">Prize: ${this.state.prize*4}</h3>
+            <div className="card-explain">
+            Zombie<br/>
+            <img alt="icon" src={`/images/${this.state.zorg}.png`} style={{width:"100%"}}/>
+            HP: {this.state.zombiehp}<br/>
+            DM: 300-600<br/>
+            SP: Replication (Heal)<br/>
+            Prize: ${this.state.prize*4}<br/>
             {!this.state.chosen ? (
-              <button className="smallbtn2" id="Zombie" onClick={this.choose}>
+              <button className="smallbtn" id="Zombie" onClick={this.choose}>
                 Choose
               </button>
             ) : null}
           </div>
             :
-            <div className="zombiedesc">
-              <h1 className="nomargin">Gurl</h1>
-              <h3 className="nomargin">HP: {this.state.zombiehp}</h3>
-              <h3 className="nomargin">DM: 100-2000</h3>
-              <h3 className="nomargin">SP: SANG! (????????)</h3>
-              <h3 className="nomargin">Prize: ${this.state.prize*3}</h3>
+            <div className="card-explain">
+              Gurl<br/>
+              <img alt="icon" src={`/images/${this.state.zorg}.png`} style={{width:"100%"}}/>
+              HP: {this.state.zombiehp}<br/>
+              DM: 100-2000<br/>
+              SP: SANG! (????????)<br/>
+              Prize: ${this.state.prize*3}<br/>
               {!this.state.chosen ? (
-                <button className="smallbtn2" id="Gurl" onClick={this.choose}>
+                <button className="smallbtn" id="Gurl" onClick={this.choose}>
                   Choose
                 </button>
               ) : null}
@@ -1105,27 +1112,29 @@ class Minigame extends React.Component {
             
             
             {this.state.dorg==="Dragon"?
-              <div className="dragondesc">
-              <h1 className="nomargin">Dragon</h1>
-              <h3 className="nomargin">HP: {this.state.dragonhp}</h3>
-              <h3 className="nomargin">DM: 600-1000</h3>
-              <h3 className="nomargin">SP: Fire Breath (Area Damage)</h3>
-              <h3 className="nomargin">Prize: ${this.state.prize}</h3>
+              <div className="card-explain">
+              Dragon<br/>
+              <img alt="icon" src={`/images/${this.state.dorg}.png`} style={{width:"100%"}}/>
+              HP: {this.state.dragonhp}<br/>
+              DM: 600-1000<br/>
+              SP: Fire Breath (Area Damage)<br/>
+              Prize: ${this.state.prize}<br/>
               {!this.state.chosen ? (
-                <button className="smallbtn2" id="Dragon" onClick={this.choose}>
+                <button className="smallbtn" id="Dragon" onClick={this.choose}>
                   Choose
                 </button>
               ) : null}
             </div>
             :
-            <div className="dragondesc">
-            <h1 className="nomargin">Golem</h1>
-            <h3 className="nomargin">HP: {this.state.dragonhp}</h3>
-            <h3 className="nomargin">DM: 400-500</h3>
-            <h3 className="nomargin">SP: Rock Punch (1000 damage)</h3>
-            <h3 className="nomargin">Prize: ${this.state.prize*1.5}</h3>
+            <div className="card-explain">
+            Golem<br/>
+            <img alt="icon" src={`/images/${this.state.dorg}.png`} style={{width:"100%"}}/>
+            HP: {this.state.dragonhp}<br/>
+            DM: 400-500<br/>
+            SP: Rock Punch (1000 damage)<br/>
+            Prize: ${this.state.prize*1.5}<br/>
             {!this.state.chosen ? (
-              <button className="smallbtn2" id="Golem" onClick={this.choose}>
+              <button className="smallbtn" id="Golem" onClick={this.choose}>
                 Choose
               </button>
             ) : null}
@@ -1135,66 +1144,71 @@ class Minigame extends React.Component {
           </div>
         ) : (
           <div>
-            <h1
-              className="boxshadow"
+            <div
+              className="boxshadow container-map"
               style={{
                 position: "absolute",
-                top: `10%`,
-                left: `0%`,
-                fontSize: "40px"
+                top: `5%`,
+                left: `10%`,
               }}
             >
               HP: {this.state.ghosthp}
-            </h1>
-            <h1
-              className="boxshadow"
+            </div>
+            <div
+              className="boxshadow container-map"
               style={{
                 position: "absolute",
-                top: `80%`,
-                left: `25%`,
-                fontSize: "40px"
+                top: `40%`,
+                left: `55%`,
               }}
             >
               HP: {this.state.zombiehp}
-            </h1>
-            <h1
-              className="boxshadow"
+            </div>
+            <div
+              className="boxshadow container-map"
               style={{
                 position: "absolute",
-                top: `10%`,
-                left: `50%`,
-                fontSize: "40px"
+                top: `5%`,
+                left: `80%`,
               }}
             >
               HP: {this.state.dragonhp}
-            </h1>
+            </div>
           </div>
         )}
         {this.state.zorg==="Zombie"?
           <div>{this.state.zombiehp > 0 ? (
-            <div
-              className="zombie"
+            <img
+              className="card"
+              src="/images/Zombie.png"
+              alt="icon"
               style={{
                 top: `${this.state.zombie[0]}%`,
                 left: `${this.state.zombie[1]}%`
               }}
             />
-          ) : null}</div>
+          ) : null}
+          </div>
         :
         <div>{this.state.zombiehp > 0 ? (
-          <div
-            className="gurl"
+          <img
+          className="card"
+          alt="icon"
+          src="/images/Gurl.png"
             style={{
               top: `${this.state.zombie[0]}%`,
               left: `${this.state.zombie[1]}%`
             }}
           />
-        ) : null}</div>}
+        ) : null}
+        </div>}
         
         {this.state.gorm==="Mage"?
         <div>{this.state.ghosthp > 0 ? (
-          <div
-            className="mage"
+          <img
+          className="card"
+          alt="icon"
+            src="/images/Mage.png"
             style={{
               top: `${this.state.ghost[0]}%`,
               left: `${this.state.ghost[1]}%`
@@ -1204,8 +1218,10 @@ class Minigame extends React.Component {
         </div>
         :this.state.gorm==="Ghost"?
         <div>{this.state.ghosthp > 0 ? (
-          <div
-            className="ghost"
+          <img
+          className="card"
+          src="/images/Ghost.png"
+          alt="icon"
             style={{
               top: `${this.state.ghost[0]}%`,
               left: `${this.state.ghost[1]}%`
@@ -1216,14 +1232,18 @@ class Minigame extends React.Component {
         :
         <div>{this.state.ghosthp > 0 ? (
           <div>
-          {this.state.wizzard? <div
-            className="dragon2-2"
+          {this.state.wizzard? <img
+          className="card"
+            src="/images/Wizzard.png"
+            alt="icon"
             style={{
               top: `${this.state.ghost[0]}%`,
               left: `${this.state.ghost[1]}%`
             }}
-          /> :<div
-            className="dragon2"
+          /> :<img
+          src="/images/Wizzard.png"
+          className="card"
+          alt="icon"
             style={{
               top: `${this.state.ghost[0]}%`,
               left: `${this.state.ghost[1]}%`
@@ -1235,31 +1255,39 @@ class Minigame extends React.Component {
         }
         
         {this.state.dorg==="Dragon"?
-          <div>{this.state.dragonhp > 0 ? (
-            <div
-              className="dragon"
+          <div>
+            {this.state.dragonhp > 0 ? (
+            <img
+            className="card"
+            src="/images/Dragon.png"
+            alt="icon"
               style={{
                 top: `${this.state.dragon[0]}%`,
                 left: `${this.state.dragon[1]}%`
               }}
             />
-          ) : null}
+            ) : null}
           </div>
         :
-        <div>{this.state.dragonhp > 0 ? (
-          <div
-            className="golem"
+        <div>
+          {this.state.dragonhp > 0 ? (
+          <img
+          className="card"
+          src="/images/Golem.png"
+          alt="icon"
             style={{
               top: `${this.state.dragon[0]}%`,
               left: `${this.state.dragon[1]}%`
             }}
           />
-        ) : null}
+          ) : null}
         </div>
         }
         {this.state.draining ? (
-          <div
-            className="drain"
+          <img
+          className="card"
+          src="/images/magic2.png"
+          alt="icon"
             style={{
               top: `${this.state.ghost[0]}%`,
               left: `${this.state.ghost[1]}%`
@@ -1267,8 +1295,10 @@ class Minigame extends React.Component {
           />
         ) : null}
         {this.state.helling ? (
-          <div
-            className="hell"
+          <img
+          className="card"
+          src="/images/magic.png"
+          alt="icon"
             style={{
               top: `${this.state.hell[0]}%`,
               left: `${this.state.hell[1]}%`
@@ -1277,29 +1307,28 @@ class Minigame extends React.Component {
         ) : null}
         
         {this.state.fire?
-        <div className="fire" />
+        <img
+        className="card"
+        src="/images/fire.png"
+        alt="icon"
+        style={{top:"26%",left:"0%"}}/>
         :null}
         {this.state.ice?
-        <div className="ice" />
+        <img className="card"
+          src="/images/magic2.png"
+          alt="icon"
+         style={{top:"26%",left:"30%"}}
+        />
         :null}
         {this.state.heal?
-        <div className="heal" />
+        <img
+        className="card"
+          src="/images/heal.png"
+          alt="icon"
+          style={{top:"40%",left:"33%"}}
+          />
         :null}
-        {!this.state.chosen ? (
-          <div>{this.state.gorm==="Mage"?
-            <button className="smallbtn2 spbtn" id="Mage" onClick={this.choose}>
-          Choose
-        </button>: this.state.gorm==="Ghost"?
-          <button className="smallbtn2 spbtn" id="Ghost" onClick={this.choose}>
-          Choose
-        </button>:
-        <button className="smallbtn2 spbtn" id="Wizzard" onClick={this.choose}>
-        Choose
-      </button>
-      }
-                
-          </div>
-              ) : null}
+      </div>
       </div>
     );
   }

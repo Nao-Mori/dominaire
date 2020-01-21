@@ -1,9 +1,7 @@
 import React from "react";
 import Takesound from "../sound/take.wav";
-import BGM from "../sound/minibgm3.mp3";
 import Awsound from "../sound/aww.wav"
 
-const bgm = new Audio(BGM)
 
 const takesound = new Audio(Takesound);
 const awwsound = new Audio(Awsound)
@@ -60,10 +58,6 @@ class Minigame2 extends React.Component {
       name3: this.props.state.name3,
       mode: this.props.state.mode
     });
-    if(this.props.state.bgm==="ON"){
-      bgm.loop = true
-      bgm.play()
-    }
     this.letsgo();
   }
 
@@ -214,8 +208,6 @@ class Minigame2 extends React.Component {
       );
       setTimeout(
         function() {
-            bgm.pause()
-            bgm.currentTime=0
           this.props.minigameover(this.state.money1, this.state.money2, this.state.money3)
         }.bind(this),
         3000
@@ -270,7 +262,7 @@ class Minigame2 extends React.Component {
             wincolor = "color3"
         } else {
           awwsound.play()
-            msg= "Too Bad! Nobody ain't get no money!"
+            msg= "Too Bad! Nobody gets money!"
         }
         let total = this.state[winner] + sum
         this.setState({[winner]: total, message: msg, [wincolor]: "yellow"})
@@ -331,67 +323,23 @@ class Minigame2 extends React.Component {
     return (
       <div>
         <div className="wall2">
-          <h1 className="containersmall2" style={{ top: "0%", left: "10%" }}>
-            {this.state.message}
-          </h1>
-          <div
-            className="dotppl"
-            style={{
-              top: "70%",
-              left: "40%",
-              opacity: "0.9",
-              height: "80px",
-              width: "200px",
-              fontSize: "40px",
-              paddingTop: "20px"
-            }}
-          >
-            ${this.state.money1}
-          </div>
-          <div
-            className="dotppl"
-            style={{
-              backgroundColor: `rgb(93, 169, 204)`,
-              top: "20%",
-              left: "3%",
-              height: "80px",
-              width: "200px",
-              fontSize: "40px",
-              paddingTop: "20px"
-            }}
-          >
-            ${this.state.money2}
-          </div>
-          <div
-            className="dotppl"
-            style={{
-              backgroundColor: `rgb(112, 211, 103)`,
-              top: "20%",
-              left: "80%",
-              height: "80px",
-              width: "200px",
-              fontSize: "40px",
-              paddingTop: "20px"
-            }}
-          >
-            ${this.state.money3}
-          </div>
+          <div className="container-ranking message" style={{marginBottom:"1vw",marginTop:"2vw"}}>{this.state.message}</div>
           {this.state.revealed ? (
             <div>
               <p
-                className="card"
+                className="card-2"
                 style={{ position: "absolute", top: "55%", left: "45.5%", backgroundColor: this.state.color1 }}
               >
                 {this.state.picked1}
               </p>
               <p
-                className="card"
+                className="card-2"
                 style={{ position: "absolute", top: "25%", left: "23%", backgroundColor: this.state.color2 }}
               >
                 {this.state.picked2}
               </p>
               <p
-                className="card"
+                className="card-2"
                 style={{ position: "absolute", top: "25%", left: "70%", backgroundColor: this.state.color3 }}
               >
                 {this.state.picked3}
@@ -399,41 +347,41 @@ class Minigame2 extends React.Component {
             </div>
           ) : null}
 
-          <div className="spacer" style={{ marginTop: "350px" }}></div>
+          <div style={{height:"15vw"}}/>
           {this.state.drawable ? (
             <div>
               {this.state.card1 ? (
-                <button className="card" id="card1" onClick={this.draw}>
+                <button className="card-2" id="card1" onClick={this.draw}>
                   1
                 </button>
               ) : null}
               {this.state.card2 ? (
-                <button className="card" id="card2" onClick={this.draw}>
+                <button className="card-2" id="card2" onClick={this.draw}>
                   2
                 </button>
               ) : null}
               {this.state.card3 ? (
-                <button className="card" id="card3" onClick={this.draw}>
+                <button className="card-2" id="card3" onClick={this.draw}>
                   3
                 </button>
               ) : null}
               {this.state.card4 ? (
-                <button className="card" id="card4" onClick={this.draw}>
+                <button className="card-2" id="card4" onClick={this.draw}>
                   4
                 </button>
               ) : null}
               {this.state.card5 ? (
-                <button className="card" id="card5" onClick={this.draw}>
+                <button className="card-2" id="card5" onClick={this.draw}>
                   5
                 </button>
               ) : null}
               {this.state.card6 ? (
-                <button className="card" id="card6" onClick={this.draw}>
+                <button className="card-2" id="card6" onClick={this.draw}>
                   6
                 </button>
               ) : null}
               {this.state.card7 ? (
-                <button className="card" id="card7" onClick={this.draw}>
+                <button className="card-2" id="card7" onClick={this.draw}>
                   7
                 </button>
               ) : null}
@@ -443,43 +391,44 @@ class Minigame2 extends React.Component {
           {this.state.drawable2 ? (
             <div>
               {this.state.card01 ? (
-                <button className="card" id="card01" onClick={this.draw2}>
+                <button className="card-2" id="card01" onClick={this.draw2}>
                   1
                 </button>
               ) : null}
               {this.state.card02 ? (
-                <button className="card" id="card02" onClick={this.draw2}>
+                <button className="card-2" id="card02" onClick={this.draw2}>
                   2
                 </button>
               ) : null}
               {this.state.card03 ? (
-                <button className="card" id="card03" onClick={this.draw2}>
+                <button className="card-2" id="card03" onClick={this.draw2}>
                   3
                 </button>
               ) : null}
               {this.state.card04 ? (
-                <button className="card" id="card04" onClick={this.draw2}>
+                <button className="card-2" id="card04" onClick={this.draw2}>
                   4
                 </button>
               ) : null}
               {this.state.card05 ? (
-                <button className="card" id="card05" onClick={this.draw2}>
+                <button className="card-2" id="card05" onClick={this.draw2}>
                   5
                 </button>
               ) : null}
               {this.state.card06 ? (
-                <button className="card" id="card06" onClick={this.draw2}>
+                <button className="card-2" id="card06" onClick={this.draw2}>
                   6
                 </button>
               ) : null}
               {this.state.card07 ? (
-                <button className="card" id="card07" onClick={this.draw2}>
+                <button className="card-2" id="card07" onClick={this.draw2}>
                   7
                 </button>
               ) : null}
               
             </div>
           ) : null}
+            {!this.state.revealed?<div className="myprice">${this.state.money1}</div>:null}
         </div>
       </div>
     );
