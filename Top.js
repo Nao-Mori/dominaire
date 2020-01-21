@@ -1,5 +1,4 @@
 import React from "react";
-import Main from "./component/Main";
 
 function Top (props) {
   const checkin = event => {
@@ -9,7 +8,6 @@ function Top (props) {
   };
 
   return (
-    <div>
       <div>
         <br/>
         <div style={{maxWidth:"500px",margin:"0 auto",backgroundColor:"rgba(240,240,240,0.7)",padding:"20px",borderRadius:"10px"}}>
@@ -50,7 +48,7 @@ function Top (props) {
           </div>
         </div>
         <br/>
-        <h2 style={{marginTop:"10px"}}>2. CHOOSE A NUMBER OF CPU</h2>
+        {/* <h2 style={{marginTop:"10px"}}>2. CHOOSE A NUMBER OF CPU</h2>
         <div style={{display: "flex",flexWrap:"wrap"}}>
         <button className="topbtn" style={{backgroundColor:props.mode==="2 CPU"?"rgb(229, 157, 49)":null,margin:"5px auto"}}
         onClick={()=>props.setMode("2 CPU")}>
@@ -64,10 +62,10 @@ function Top (props) {
         onClick={()=>props.setMode("0 CPU")}>
           0 CPU
         </button>
-        </div>
+        </div> */}
         <br/>
         <h2 style={{margin:"15px"}}>3. UM... DUH...</h2>
-        <button className="btn" style={{backgroundColor:"rgb(207, 82, 33)"}} onClick={()=>props.play()}>
+        <button className="top-btn" style={{backgroundColor:"rgb(207, 82, 33)"}} onClick={()=>props.play()}>
           START
         </button>
         </div>
@@ -75,9 +73,9 @@ function Top (props) {
         <div style={{maxWidth:"700px",margin:"0 auto",backgroundColor:"rgba(240,240,240,0.7)",padding:"10px",borderRadius:"10px"}}>
           <h1 style={{marginTop:"0"}}>HOW TO PLAY</h1>
           <ul style={{textAlign:"left", fontWeight:"bold",fontSize:"18px"}}>
-            <li>Dominaire is a 3 person board game and you can play with your friends locally (online battles are not available at this point).</li>
+            <li>Dominaire is a 3 person board game. You will play against 2 smart robots.</li>
             <br/>
-            <li>The color of buttons indicates one's turn (Pink, Blue, Green).</li>
+            <li>Your color is pink (I guessed your favorite color).</li>
             <br/>
             <li>Roll dice, move, buy tiles (land) and upgrade them. If your opponents land on your tile you take money from them.</li>
             <br/>
@@ -116,7 +114,6 @@ function Top (props) {
         </p>
         </div>
       </div>
-    </div>
   )
 }
 

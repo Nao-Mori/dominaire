@@ -5,7 +5,18 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.bg-gold{
   background:linear-gradient(0.5turn,#bdb989, #cca63d, #bdb989);
+}
+.bg-blue{
+  background:linear-gradient(0.5turn,#8a89bd, #5c3dcc, #8a89bd);
+  z-index: -100;
+}
+
+.bg-green{
+  background:linear-gradient(0.5turn,#28ce5f, #078b33, #28ce5f);
 }
 
 code {
@@ -22,102 +33,11 @@ button:hover{
   filter: brightness(85%);
 }
 
-
-.App {
-  text-align: center;
-  margin: 0 auto;
-  max-width: 600px;
-  padding:10px;
-}
 .BG2{
   margin: auto;
   background-image:  url(./image/board.jpg);
   height: 400px;
   width: 700px;
-}
-
-.container{
-  position: relative;
-  margin: 0 auto;
-  width: 1400px;
-  height: 700px;
-}
-
-.hovermenu{
-  font-weight: 400;
-  position: absolute;
-  top: 63%;
-  left: 24.5%;
-  margin-top: 50px;
-  padding: 10px;
-  font-size: 30px;
-  height: auto;
-  width: 700px;
-  box-shadow: 0 0 10px 2px;
-}
-
-.fire{
-  background-image: url(./image/fire.png);
-  position: absolute;
-  top: 26%;
-  left: 0%;
-  height: 500px;
-  width: 800px;
-}
-.ice{
-  background-image: url(./image/ice.png);
-  position: absolute;
-  top: 26%;
-  left: 30%;
-  height: 500px;
-  width: 800px;
-}
-.heal{
-  background-image: url(./image/heal.png);
-  position: absolute;
-  top: 40%;
-  left: 33%;
-  height: 400px;
-  width: 400px;
-}
-
-.container2{
-  position: relative;
-  margin: 10px auto;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  background-image: url(./image/board.jpg);
-  width: 1200px;
-  height: 80px;
-}
-
-.container3{
-  color: rgb(255, 255, 255);
-  width: 220px;
-  height: auto;
-  margin-top: 15px;
-  margin-bottom: 0px;
-  font-size: 15px;
-  border-radius: 25px;
-}
-
-.win{
-  animation: winning 1s infinite;
-}
-
-.container4{
-  position: absolute;
-  background-color: rgba(255,255,255,0.5);
-  width: 250px;
-  top:20%;
-  left:3.6%;
-  border-radius: 10px;
-  padding:15px
-}
-
-.container5{
-  width: 250px;
-  height: 300px;
 }
 
 .wall{
@@ -132,35 +52,7 @@ button:hover{
   box-shadow: 0 0 10px 2px;
 }
 .wall2{
-  position: absolute;
-  top: 5%;
-  left: -10%;
-  height: 750px;
-  width: 1530px;
-  font-size: 36px;
-  background-image: url(./image/wall2.jpg);
-  box-shadow: 0 0 10px 2px;
-}
-
-.containersmall{
-  position: absolute;
-  top: 35%;
-  left: 23.5%;
-  height: 85px;
-  width: 750px;
-  background-image: url(./image/board.jpg);
-  box-shadow: 0 0 10px 2px;
-}
-.containersmall2{
-  padding-top: 10px;
-  position: absolute;
-  top: 97%;
-  left: 2%;
-  height: 70px;
-  width: 1200px;
-  font-size: 39px;
-  background-image: url(./image/board.jpg);
-  box-shadow: 0 0 10px 2px;
+  width: 100%;
 }
 
 .block{
@@ -168,7 +60,7 @@ button:hover{
   height: 20%;
   width: 10%;
   background-color: rgb(255, 206, 142);
-  border-radius: 20px;
+  border-radius: 10%;
   border:1px solid black;
 }
 
@@ -177,7 +69,7 @@ button:hover{
   height: 20%;
   width: 10%;
   background-color: rgb(252, 188, 115);
-  border-radius: 20px;
+  border-radius: 10%;
   border:1px solid black;
   filter: brightness(40%);
   transition: all 0.3s ease;
@@ -208,60 +100,10 @@ button:hover{
   transition: 0.3s color;
 }
 
-
-.btn {
-  height: 100px;
-  width: 200px;
-  font-size: 40px;
-  background-color: rgb(110, 110, 110);
-  color: rgb(255, 255, 255);
-  font-weight: bold;
-  border-radius: 25px;
-  outline: none;
-  border-radius: 25px;
-  transition: 0.3s color;
-}
-
-.smallbtn{
-  height: 70px;
-  width: 140px;
-  font-size: 30px;
-  background-color: rgb(78, 78, 78);
-  color: rgb(255, 255, 255);
-  font-weight: bold;
-  border-radius: 25px;
-  outline: none;
-}
-.mediumbtn{
-  height: 100px;
-  width: 200px;
-  font-size: 30px;
-  background-color: rgb(255, 255, 255);
-  color: rgb(255, 255, 255);
-  font-weight: bold;
-  border-radius: 25px;
-  outline: none;
-}
 .spbtn{
   position: absolute;
   top: 33%;
   left:2%
-}
-
-
-.title{
-  margin-top: 150px;
-  font-size: 70px;
-  color: rgb(0, 0, 0)
-}
-.title2{
-  margin-top: 60px;
-  margin-right: 80px;
-  font-size: 60px;
-  text-shadow:1px 1px 0 rgb(0, 0, 0), -1px -1px 0 rgb(0, 0, 0),
-              -1px 1px 0 rgb(0, 0, 0), 1px -1px 0 rgb(0, 0, 0),
-              0px 1px 0 rgb(0, 0, 0),  0-1px 0 rgb(0, 0, 0),
-              -1px 0 0 rgb(0, 0, 0), 1px 0 0 rgb(0, 0, 0);
 }
 
 .dotppl {
@@ -286,12 +128,10 @@ button:hover{
 }
 
 .shadow{
-  margin-top: 15px;
   margin-bottom: 0px;
   font-size: 15px;
   border-radius: 25px;
   box-shadow: 0 0 10px 2px;
-  vertical-align: middle;
   text-shadow:1px 1px 0 rgb(255, 255, 255), -1px -1px 0 rgb(255, 255, 255),
               -1px 1px 0 rgb(255, 255, 255), 1px -1px 0 rgb(255, 255, 255),
               0px 1px 0 rgb(255, 255, 255),  0-1px 0 rgb(255, 255, 255),
@@ -304,12 +144,6 @@ button:hover{
   height: 450px;
   width: 440px;
 
-}
-.mage{
-  position: absolute;
-  background-image: url(./image/mage.png);
-  height: 460px;
-  width: 500px;
 }
 .drain{
   position: absolute;
@@ -366,9 +200,7 @@ button:hover{
   background-color: white;
   top: 5%;
   left: 45%;
-  padding-left: 10px;
-  height: 175px;
-  width: 150px;
+  padding: 10px;
   margin: 0px;
   text-align: left;
   box-shadow: 0 0 10px 2px;
@@ -400,7 +232,6 @@ button:hover{
   box-shadow: 0 0 10px 2px;
 }
 
-
 .nomargin{
   margin: 0
 }
@@ -414,27 +245,6 @@ button:hover{
   font-weight: bold;
   border-radius: 25px;
   outline: none;
-}
-
-.card{
-  height: 120px;
-  width: 90px;
-  box-shadow: 0 0 10px 2px;
-  font-size: 70px;
-}
-
-@keyframes winning {
-  0% { width: 200px; left: 5%}
-  10% { width: 210px; left: 4.8%}
-  20% { width: 220px; left: 4.6%}
-  30% { width: 230px; left: 4.4%}
-  40% { width: 240px; left: 4.2%}
-  50% { width: 250px; left: 4%}
-  60% { width: 240px; left: 4.2%}
-  70% { width: 230px; left: 4.4%}
-  80% { width: 220px; left: 4.6%}
-  90% { width: 210px; left: 4.8% }
-  100% { width: 200px; left: 5%}
 }
 
 @keyframes shake {
@@ -462,4 +272,29 @@ button:hover{
   80% { top: 6%; left: 55% }
   90% { top: 5.5%; left: 55% }
   100% { top: 5%; left: 55% }
+}
+
+.fire{
+  background-image: url(./image/fire.png);
+  position: absolute;
+  top: 26%;
+  left: 0%;
+  height: 500px;
+  width: 800px;
+}
+.ice{
+  background-image: url(./image/ice.png);
+  position: absolute;
+  top: 26%;
+  left: 30%;
+  height: 500px;
+  width: 800px;
+}
+.heal{
+  background-image: url(./image/heal.png);
+  position: absolute;
+  top: 40%;
+  left: 33%;
+  height: 400px;
+  width: 400px;
 }
