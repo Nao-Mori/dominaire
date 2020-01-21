@@ -1,6 +1,5 @@
 import React from "react";
 import Map from "../graphics/Map";
-import Header from "./Headbar";
 import Action from "../major parts/Action";
 import Ranking from "../major parts/Ranking"
 
@@ -8,18 +7,15 @@ import Person1 from "../graphics/ppl";
 import Person2 from "../graphics/ppl2";
 import Person3 from "../graphics/ppl3";
 
-import Spinsound from "./sound/spin.wav";
+import Spinsound from "../sound/spin.wav";
 import Tiles from "../parts/Tiles";
 import Income from "../parts/Income";
 import Finalincome from "../parts/Finalincome";
-import Takesound from "./sound/take.wav";
+import Takesound from "../sound/take.wav";
 import Pushtile from "../parts/Pushtile";
 import Minigame from "../minigames/Minigame";
 import Minigame2 from "../minigames/Minigame2";
-import BGMend from "./sound/bgm.wav";
-import BGM from "./sound/bgm2.mp3";
-import BGM2 from "./sound/chaos.mp3";
-import Gossip from "./sound/gossip.wav";
+import Gossip from "../sound/gossip.wav";
 import RollDice from "../parts/RollDice";
 import Info from "../major parts/Info";
 import Buy from "../major parts/Buy";
@@ -37,9 +33,17 @@ import Minigameover from "../major parts/Minigameover";
 const spinsound = new Audio(Spinsound);
 const takesound = new Audio(Takesound);
 const gossipsound = new Audio(Gossip);
-const bgm = new Audio(BGM);
-const bgm2 = new Audio(BGM2);
-const bgmend = new Audio(BGMend);
+const bgmend = new Audio("/sound/bgm.wav")
+const bgm = new Audio('/sound/bgm2.mp3');
+const minibgm = new Audio('/sound/minibgm2.mp3');
+const minibgm2 = new Audio('/sound/minibgm3.mp3');
+var vol = 0.1
+bgmend.volume = vol
+bgm.volume = 0.07
+minibgm.volume= vol
+minibgm2.volume= vol
+const bgm2 = new Audio("/sound/chaos.mp3");
+bgm2.volume = vol
 
 const defcolor = "197, 161, 113";
 const cityhall = "196, 196, 196";
@@ -152,7 +156,8 @@ class Main extends React.Component {
       rpg: false,
       mode: "",
       cancel: false,
-      bgm: "ON"
+      bgm: "ON",
+      mobile: false,
     };
   }
 
@@ -169,7 +174,9 @@ class Main extends React.Component {
   }
 
   componentDidMount() {
+    this.setState({ mobile:this.props.mobile})
     bgm.loop = true;
+    bgm.volue=0.1
     bgm.play();
     let ran = Math.floor(Math.random() * 3);
     ran = ran + 1;
@@ -186,9 +193,9 @@ class Main extends React.Component {
       ppldesu = "ppl3";
     }
     this.setState({
-      name1: this.props.state.name1,
-      name2: this.props.state.name2,
-      name3: this.props.state.name3,
+      name1: this.props.name1,
+      name2: this.props.name2,
+      name3: this.props.name3,
       now: ran,
       color: color11,
       nowppl: ppldesu,
@@ -305,7 +312,6 @@ class Main extends React.Component {
   };
 
   upgrade = () => {
-    console.log(this.state.house1);
     var pricen
     var housen
     if (this.state.now === 1) {
@@ -429,7 +435,6 @@ class Main extends React.Component {
   };
 
   sellthis = event => {
-    console.log("clicked");
     Clickthis(
       this.state,
       this.settingstate,
@@ -445,7 +450,6 @@ class Main extends React.Component {
       setTimeout(
         function() {
           let place = Tiles(this.state);
-          console.log(place);
           this.setState({ gogo: false, unmoved: false, nowtile: place });
           this.info();
         }.bind(this),
@@ -545,7 +549,6 @@ class Main extends React.Component {
     var mins = this.state.overcount - 1;
     this.setState({ overcount: mins });
     var Over = false;
-    console.log(this.state.overcount);
 
     if (mins === 0) {
       Over = true;
@@ -603,22 +606,26 @@ class Main extends React.Component {
 
     let rand = Math.floor(Math.random() * 8);
 
-    if (mins === 70 || mins === 50 || mins === 20) {
+    if (mins === 65 || mins === 20) {
       this.setState({ status: "Time for Mini Game!!" });
+      this.props.setBg("bg-blue")
       setTimeout(
         function() {
           bgm.pause();
           bgm.currentTime = 0;
+          minibgm.play()
           this.setState({ rpg: true, minigame: true });
         }.bind(this),
         1500
       );
-    } else if (mins === 35) {
+    } else if (mins === 40) {
       this.setState({ status: "Time for Mini Game!!" });
+      this.props.setBg("bg-green")
       setTimeout(
         function() {
           bgm.pause();
           bgm.currentTime = 0;
+          minibgm2.play()
           this.setState({ rpg: false, minigame: true });
         }.bind(this),
         1500
@@ -742,7 +749,11 @@ class Main extends React.Component {
   }
 
   minigameover = (one, two, three) => {
+    this.props.setBg("bg-gold")
     if(this.state.bgm==="ON"){
+      minibgm.pause()
+      minibgm.currentTime = 0
+
       bgm.loop = true;
       bgm.play();
     }
@@ -774,11 +785,13 @@ class Main extends React.Component {
   };
 
   minigameover2 = (one, two, three) => {
+    this.props.setBg("bg-gold")
     if(this.state.bgm==="ON"){
+      minibgm2.pause()
+      minibgm2.currentTime = 0
       bgm.loop = true;
       bgm.play();
     }
-    console.log(one, two, three);
     this.setState({ minigame: false });
     setTimeout(
       function() {
@@ -835,21 +848,27 @@ class Main extends React.Component {
 
   render() {
     return (
-      <div>
-        <div>
-          {!this.state.over ? (
-            <div>
-              <div>
-              {!this.state.minigame?
-                <Ranking state={this.state} bgmoff={this.bgmoff}/>
-                :null}
-              </div>
-              <div className="container2 shadow">
-                
-                <Header state={this.state} quit={this.quit} />
-
-              </div>
-              <div className="container">
+      <div className="container-main">
+        {!this.state.over ? (
+          <div>
+            {!this.state.minigame?<div style={{position:"fixed",backgroundColor:"rgba(255,255,255,0.5)",padding:"10px",fontSize:"30px",bottom:"0",borderRadius:"10px"}}>
+              Ends in {this.state.overcount} turns
+              <br/>
+              <button className="smallbtn" onClick={()=>{
+                if(this.state.bgm==="ON"){
+                  bgm.pause()
+                  bgm2.pause()
+                  minibgm.pause()
+                  minibgm2.pause()
+                } else {
+                  if(this.state.overcount<20) bgm.play()
+                  else bgm.play()
+                }
+                this.setState({bgm:this.state.bgm==="ON"?"OFF":"ON"})
+              }}>BGM {this.state.bgm}</button>
+            </div>:null}
+              <Ranking state={this.state} bgmoff={this.bgmoff}/>
+              <div className={`container-game ${this.state.mobile?"game-mobile":"game-pc"}`}>
                 {this.state.minigame ? (
                   <div>
                     {this.state.rpg ? (
@@ -911,26 +930,25 @@ class Main extends React.Component {
                   </div>
                 )}
               </div>
+          </div>
+        ) : (
+          <div>
+            <div className="BG2">
+            <h1 className="title">{this.state.winmsg}</h1>
+            <h1>
+              {this.state.name1}: ${this.state.final1}
+            </h1>
+            <h1>
+              {this.state.name2}: ${this.state.final2}
+            </h1>
+            <h1>
+              {this.state.name3}: ${this.state.final3}
+            </h1>
             </div>
-          ) : (
-            <div>
-              <div className="BG2">
-              <h1 className="title">{this.state.winmsg}</h1>
-              <h1>
-                {this.state.name1}: ${this.state.final1}
-              </h1>
-              <h1>
-                {this.state.name2}: ${this.state.final2}
-              </h1>
-              <h1>
-                {this.state.name3}: ${this.state.final3}
-              </h1>
-              </div>
-            </div>
-          )}
-        </div>
+          </div>
+        )}
       </div>
-    );
+    )
   }
 }
 
