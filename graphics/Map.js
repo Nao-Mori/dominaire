@@ -42,7 +42,7 @@ function Map(props) {
         onClick={props.sellthis}
       >
         ${props.state.a2[1]}
-        <div id="a2" style={{marginTop:"2vw"}}>${props.state.a2[1] * 0.4} </div>
+        <div id="a2" className="bottom-text">${props.state.a2[1] * 0.4} </div>
       </div>
 
       <div
@@ -63,7 +63,7 @@ function Map(props) {
         onClick={props.sellthis}
       >
         ${props.state.a3[1]}
-        <div id="a3" style={{marginTop:"2vw"}}>${props.state.a3[1] * 0.4}</div>
+        <div id="a3" className="bottom-text">${props.state.a3[1] * 0.4}</div>
       </div>
 
       <div
@@ -88,9 +88,9 @@ function Map(props) {
           {props.state.a4custom}
         </div>
         {props.state.a4custom === "Gate" ? (
-          <div id="a4">${Math.round(props.state.a4[1] * 0.07)}</div>
+          <div id="a4" className="bottom-text">${Math.round(props.state.a4[1] * 0.07)}</div>
         ) : (
-          <div id="a4">${Math.round(props.state.a4[1] * 0.35)}</div>
+          <div id="a4" className="bottom-text">${Math.round(props.state.a4[1] * 0.35)}</div>
         )}
       </div>
 
@@ -112,7 +112,7 @@ function Map(props) {
         onClick={props.sellthis}
       >
         ${props.state.a5[1]}
-        <div id="a5" style={{marginTop:"2vw"}}>${props.state.a5[1] * 0.4}</div>
+        <div id="a5" className="bottom-text">${props.state.a5[1] * 0.4}</div>
       </div>
 
       <div
@@ -133,7 +133,7 @@ function Map(props) {
         onClick={props.sellthis}
       >
         ${props.state.a6[1]}
-        <div id="a6" style={{marginTop:"2vw"}}>${props.state.a6[1] * 0.4}</div>
+        <div id="a6" className="bottom-text">${props.state.a6[1] * 0.4}</div>
       </div>
 
       <div
@@ -154,7 +154,7 @@ function Map(props) {
         onClick={props.sellthis}
       >
         ${props.state.a7[1]}
-        <div id="a7" style={{marginTop:"2vw"}}>${props.state.a7[1] * 0.4}</div>
+        <div id="a7" className="bottom-text">${props.state.a7[1] * 0.4}</div>
       </div>
 
       <div
@@ -179,9 +179,9 @@ function Map(props) {
           {props.state.b1custom}
         </div>
         {props.state.b1custom === "Gate" ? (
-          <div id="b1">${Math.round(props.state.b1[1] * 0.07)}</div>
+          <div id="b1" className="bottom-text">${Math.round(props.state.b1[1] * 0.07)}</div>
         ) : (
-          <div id="b1">${Math.round(props.state.b1[1] * 0.35)}</div>
+          <div id="b1" className="bottom-text">${Math.round(props.state.b1[1] * 0.35)}</div>
         )}
       </div>
 
@@ -203,7 +203,7 @@ function Map(props) {
         onClick={props.sellthis}
       >
         ${props.state.b2[1]}
-        <div id="b2" style={{marginTop:"2vw"}}>${props.state.b2[1] * 0.4}</div>
+        <div id="b2" className="bottom-text">${props.state.b2[1] * 0.4}</div>
       </div>
 
       <div
@@ -224,7 +224,7 @@ function Map(props) {
         onClick={props.sellthis}
       >
         ${props.state.b3[1]}
-        <div id="b3" style={{marginTop:"2vw"}}>${props.state.b3[1] * 0.4}</div>
+        <div id="b3" className="bottom-text">${props.state.b3[1] * 0.4}</div>
       </div>
 
       <div
@@ -245,7 +245,7 @@ function Map(props) {
         onClick={props.sellthis}
       >
         ${props.state.b4[1]}
-        <div id="b4" style={{marginTop:"2vw"}}>${props.state.b4[1] * 0.4}</div>
+        <div id="b4" className="bottom-text">${props.state.b4[1] * 0.4}</div>
       </div>
 
       <div
@@ -270,9 +270,9 @@ function Map(props) {
           {props.state.c1custom}
         </div>
         {props.state.c1custom === "Gate" ? (
-          <div id="c1">${Math.round(props.state.c1[1] * 0.07)}</div>
+          <div id="c1" className="bottom-text">${Math.round(props.state.c1[1] * 0.07)}</div>
         ) : (
-          <div id="c1">${Math.round(props.state.c1[1] * 0.35)}</div>
+          <div id="c1" className="bottom-text">${Math.round(props.state.c1[1] * 0.35)}</div>
         )}
       </div>
 
@@ -294,7 +294,7 @@ function Map(props) {
         onClick={props.sellthis}
       >
         ${props.state.c2[1]}
-        <div id="c2" style={{marginTop:"2vw"}}>${props.state.c2[1] * 0.4}</div>
+        <div id="c2" className="bottom-text">${props.state.c2[1] * 0.4}</div>
       </div>
 
       <div
@@ -315,7 +315,7 @@ function Map(props) {
         onClick={props.sellthis}
       >
         ${props.state.c3[1]}
-        <div id="c3" style={{marginTop:"2vw"}}>${props.state.c3[1] * 0.4}</div>
+        <div id="c3" className="bottom-text">${props.state.c3[1] * 0.4}</div>
       </div>
 
       <div
@@ -340,9 +340,9 @@ function Map(props) {
           {props.state.c4custom}
         </div>
         {props.state.c4custom === "Gate" ? (
-          <div id="c4">${Math.round(props.state.c4[1] * 0.07)}</div>
+          <div id="c4" className="bottom-text">${Math.round(props.state.c4[1] * 0.07)}</div>
         ) : (
-          <div id="c4">${Math.round(props.state.c4[1] * 0.35)}</div>
+          <div id="c4" className="bottom-text">${Math.round(props.state.c4[1] * 0.35)}</div>
         )}
       </div>
 
@@ -364,7 +364,7 @@ function Map(props) {
         onClick={props.sellthis}
       >
         ${props.state.c5[1]}
-        <div id="c5" style={{marginTop:"2vw"}}>${props.state.c5[1] * 0.4}</div>
+        <div id="c5" className="bottom-text">${props.state.c5[1] * 0.4}</div>
       </div>
 
       <div
@@ -385,7 +385,7 @@ function Map(props) {
         onClick={props.sellthis}
       >
         ${props.state.c6[1]}
-        <div id="c6" style={{marginTop:"2vw"}}>${props.state.c6[1] * 0.4}</div>
+        <div id="c6" className="bottom-text">${props.state.c6[1] * 0.4}</div>
       </div>
 
       <div
@@ -406,7 +406,7 @@ function Map(props) {
         onClick={props.sellthis}
       >
         ${props.state.c7[1]}
-        <div id="c7" style={{marginTop:"2vw"}}>${props.state.c7[1] * 0.4}</div>
+        <div id="c7" className="bottom-text">${props.state.c7[1] * 0.4}</div>
       </div>
 
       <div
@@ -431,9 +431,9 @@ function Map(props) {
           {props.state.d1custom}
         </div>
         {props.state.d1custom === "Gate" ? (
-          <div id="d1">${Math.round(props.state.d1[1] * 0.07)}</div>
+          <div id="d1" className="bottom-text">${Math.round(props.state.d1[1] * 0.07)}</div>
         ) : (
-          <div id="d1">${Math.round(props.state.d1[1] * 0.35)}</div>
+          <div id="d1" className="bottom-text">${Math.round(props.state.d1[1] * 0.35)}</div>
         )}
       </div>
 
@@ -455,7 +455,7 @@ function Map(props) {
         onClick={props.sellthis}
       >
         ${props.state.d2[1]}
-        <div id="d2" style={{marginTop:"2vw"}}>${props.state.d2[1] * 0.4}</div>
+        <div id="d2" className="bottom-text">${props.state.d2[1] * 0.4}</div>
       </div>
 
       <div
@@ -476,7 +476,7 @@ function Map(props) {
         onClick={props.sellthis}
       >
         ${props.state.d3[1]}
-        <div id="d3" style={{marginTop:"2vw"}}>${props.state.d3[1] * 0.4}</div>
+        <div id="d3" className="bottom-text">${props.state.d3[1] * 0.4}</div>
       </div>
 
       <div
@@ -497,7 +497,7 @@ function Map(props) {
         onClick={props.sellthis}
       >
         ${props.state.d4[1]}
-        <div id="d4" style={{marginTop:"2vw"}}>${props.state.d4[1] * 0.4}</div>
+        <div id="d4" className="bottom-text">${props.state.d4[1] * 0.4}</div>
       </div>
     </div>
   );

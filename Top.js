@@ -97,7 +97,7 @@ function Top (props) {
             paddingLeft: "10px",
             paddingRight: "10px"
           }}
-        ><p><b>Latest version 5.13</b> 2019/09/03: New event: "Goverment warning" added, 2019 version Monopoly is here! Minor errors fixed(gate, government warnings), 80 days -> 85 days, new design, added a ranking board and cancellation options, buffed Real Estate.
+        ><p><b>Latest version 5.13</b> 2019/09/03: New event: "Goverment warning" added, minor errors fixed(gate, government warnings), 80 days -> 85 days, new design, added a ranking board and cancellation options, buffed "Real Estate".
         </p>
           <p><b>Latest version 4.3</b> 2019/08/28: Minor errors fixed, more tiles for custom shop, 100 days -> 80 days, government warning fix.
           
@@ -107,10 +107,10 @@ function Top (props) {
           some situations).
           </p>
           <p>
-          <b>Version 4.0</b> 2019/08/25: New minigame added "Stack it up", win it all and flip the game!!
+          <b>Version 4.0</b> 2019/08/25: New mini-game added: "Stack it up"! Strategize to outplay your opponents!!
           </p>
           <p>
-          <b>Version 3.82</b> 2019/08/24: A mini game added "Monster bet", play it safe? or taking a risk for a huge come-back!!
+          <b>Version 3.82</b> 2019/08/24: New mini-game added: "Monster bet"! Play it safe or take a risk for a huge come-back!!
         </p>
         </div>
       </div>

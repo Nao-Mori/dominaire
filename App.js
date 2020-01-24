@@ -22,11 +22,11 @@ function App() {
     }
   },[])
   return (
-    <div className={bg} style={{minHeight:"100vh",paddingTop:"30px"}}>
+    <div className={bg} style={{minHeight:"100vh"}}>
       <div>
         {top?
           <div className="container-intro">
-            <img alt="logo" src="/images/logo.png" style={{width:"100%"}}/>
+            <h1 style={{fontSize:"70px", margin:"0",fontFamily: 'Rye',paddingTop:"30px"}}>DOMINAIRE</h1>
             {mobileAlert?
               <div>
                 <h3 style={{padding:"30px 20px",backgroundColor:"rgba(255,255,255,0.8)"}}>

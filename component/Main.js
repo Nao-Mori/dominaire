@@ -7,15 +7,12 @@ import Person1 from "../graphics/ppl";
 import Person2 from "../graphics/ppl2";
 import Person3 from "../graphics/ppl3";
 
-import Spinsound from "../sound/spin.wav";
 import Tiles from "../parts/Tiles";
 import Income from "../parts/Income";
 import Finalincome from "../parts/Finalincome";
-import Takesound from "../sound/take.wav";
 import Pushtile from "../parts/Pushtile";
 import Minigame from "../minigames/Minigame";
 import Minigame2 from "../minigames/Minigame2";
-import Gossip from "../sound/gossip.wav";
 import RollDice from "../parts/RollDice";
 import Info from "../major parts/Info";
 import Buy from "../major parts/Buy";
@@ -30,16 +27,16 @@ import Update from "../major parts/Update";
 import Move from "../major parts/Move";
 import Minigameover from "../major parts/Minigameover";
 
-const spinsound = new Audio(Spinsound);
-const takesound = new Audio(Takesound);
-const gossipsound = new Audio(Gossip);
+const spinsound = new Audio("/sound/spin.wav");
+const takesound = new Audio("/sound/take.wav");
+const gossipsound = new Audio("/sound/gossip.wav");
 const bgmend = new Audio("/sound/bgm.wav")
 const bgm = new Audio('/sound/bgm2.mp3');
 const minibgm = new Audio('/sound/minibgm2.mp3');
 const minibgm2 = new Audio('/sound/minibgm3.mp3');
-var vol = 0.1
+var vol = 0.3
 bgmend.volume = vol
-bgm.volume = 0.07
+bgm.volume = 0.25
 minibgm.volume= vol
 minibgm2.volume= vol
 const bgm2 = new Audio("/sound/chaos.mp3");
@@ -851,10 +848,9 @@ class Main extends React.Component {
       <div className="container-main">
         {!this.state.over ? (
           <div>
-            {!this.state.minigame?<div style={{position:"fixed",backgroundColor:"rgba(255,255,255,0.5)",padding:"10px",fontSize:"30px",bottom:"0",borderRadius:"10px"}}>
+            {!this.state.minigame?<div style={{padding:"10px",fontSize:"30px",borderRadius:"10px"}}>
               Ends in {this.state.overcount} turns
-              <br/>
-              <button className="smallbtn" onClick={()=>{
+              <button style={{backgroundColor:"gray",color:"white",border:"groove",borderRadius:"10px",fontSize:"25px",marginLeft:"10%"}} onClick={()=>{
                 if(this.state.bgm==="ON"){
                   bgm.pause()
                   bgm2.pause()
