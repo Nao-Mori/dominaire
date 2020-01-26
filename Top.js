@@ -63,14 +63,12 @@ function Top (props) {
           0 CPU
         </button>
         </div> */}
-        <br/>
-        <h2 style={{margin:"15px"}}>3. UM... DUH...</h2>
+        <h2>3. UM... DUH...</h2>
         <button className="top-btn" style={{backgroundColor:"rgb(207, 82, 33)"}} onClick={()=>props.play()}>
           START
         </button>
         </div>
-        <p style={{ marginTop: "40px" }}/>
-        <div style={{maxWidth:"700px",margin:"0 auto",backgroundColor:"rgba(240,240,240,0.7)",padding:"10px",borderRadius:"10px"}}>
+        <div style={{maxWidth:"700px",margin:"30px auto",backgroundColor:"rgba(240,240,240,0.7)",padding:"10px",borderRadius:"10px",paddingTop:"20px"}}>
           <h1 style={{marginTop:"0"}}>HOW TO PLAY</h1>
           <ul style={{textAlign:"left", fontWeight:"bold",fontSize:"18px"}}>
             <li>Dominaire is a 3 person board game. You will play against 2 smart robots.</li>
@@ -84,7 +82,6 @@ function Top (props) {
             <li>Occupy the city and be the "Dominaire"!</li>
           </ul>
         </div>
-        <p style={{ marginTop: "40px" }}/>
         <div
           style={{
             backgroundColor: "rgba(255,255,255,0.8)",

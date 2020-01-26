@@ -23,14 +23,15 @@ function App() {
   },[])
   return (
     <div className={bg} style={{minHeight:"100vh"}}>
-      <div>
+      <div style={{minHeight:"90vh"}}>
+        <div style={{minHeight:"70vw"}}>
         {top?
           <div className="container-intro">
-            <h1 style={{fontSize:"70px", margin:"0",fontFamily: 'Rye',paddingTop:"30px"}}>DOMINAIRE</h1>
+            <h1 className="logo">DOMINAIRE</h1>
             {mobileAlert?
               <div>
                 <h3 style={{padding:"30px 20px",backgroundColor:"rgba(255,255,255,0.8)"}}>
-                  Dear mobile users.<br/>It might be neccessary for you to hold your phone horizontally to avoid a glitchy screen.
+                  Dear mobile users.<br/>Please hold your phone horizontally for a better experience.
                   <br/>
                   <button className="topbtn" style={{marginTop:"20px"}} onClick={()=>setMobileAlert(false)}>Gotcha!</button>
                 </h3>
@@ -60,12 +61,11 @@ function App() {
             setBg={prop=>setBg(prop)}
           />
           }
-      </div>
-      {top?
+          </div>
+        </div>
         <div style={{width:"100%",textAlign:"center",backgroundColor:"rgba(240,240,240,0.7)",height:"50px",paddingTop:"20px",marginTop:"35px"}}>
           <h3 style={{margin:"0"}}>© Nao Mori 2020</h3>
         </div>
-      :null}
     </div>
   );
 }

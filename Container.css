@@ -14,7 +14,7 @@ button:focus {outline:0;}
 .container-game{
     position: relative;
     width: 100%;
-    height: 50vw;
+    height: 47vw;
     margin: 0 auto;
 }
 .game-mobile{
@@ -39,10 +39,10 @@ button:focus {outline:0;}
 .playercard{
     color: rgb(255, 255, 255);
     height: auto;
-    margin: 5px auto;
-    font-size: 25px;
-    border-radius: 25px;
-    padding: 0.5vw 1vw;
+    margin: 0 auto;
+    font-size: 20px;
+    border-radius: 15px;
+    padding: 0.2vw 0.5vw;
     width: 25%;
 }
 
@@ -59,27 +59,26 @@ button:focus {outline:0;}
     background-color: rgba(255,255,255,0.5);
     width: 80%;
     max-width: 1000px;
-    margin: 0 auto;
-    padding: 0.5vw;
+    margin: 1vw auto 0 auto;
+    padding: 0.2vw;
     border-radius: 30px;
     box-shadow: 0 0 1vw 0.2vw;
 }
 
 .container-action{
     margin: 0 auto;
-    width: 100%;
-    max-width: 55vw;
-    pointer-events: all;
+    max-width: 55%;
 }
 
 .container-playercard{
     display: flex;
     flex-wrap: wrap;
+    padding: 0.1vw;
 }
 
 .container-center {
     position: absolute;
-    top: 35%;
+    top: 33%;
     width: 100%;
     pointer-events: none;
 }
@@ -87,9 +86,9 @@ button:focus {outline:0;}
 .container-textboard{
     background-image: url(./image/board.jpg);
     max-width: 750px;
-    box-shadow: 0 0 1vw 0.2vw;
+    box-shadow: 0 0 0.5vw 0.1vw;
     font-size: 40px;
-    margin-bottom: 2vw;
+    margin-bottom: 1vw;
     padding-top: 2%;
     padding-bottom: 3%;
     font-weight: 500;
@@ -110,8 +109,9 @@ button:focus {outline:0;}
     font-weight: bold;
     border-radius: 25px;
     outline: none;
-    border: groove;
+    border: solid;
     border-color: gray;
+    pointer-events: all;
 }
 .minigame2-playercard{
     padding:1vw;
@@ -125,9 +125,10 @@ button:focus {outline:0;}
     font-weight: bold;
     border-radius: 20px;
     outline: none;
-    border: groove;
+    border: solid;
     border-color: gray;
     transition: 0.3s color;
+    pointer-events: all;
 }
 
 .top-btn {
@@ -138,9 +139,10 @@ button:focus {outline:0;}
     font-weight: bold;
     border-radius: 20px;
     outline: none;
-    border: groove;
+    border: solid;
     border-color: gray;
     transition: 0.3s color;
+    pointer-events: all;
 }
 
 .smallbtn{
@@ -151,13 +153,15 @@ button:focus {outline:0;}
     font-weight: bold;
     border-radius: 25px;
     outline: none;
-    border: groove;
+    border: solid;
     border-color: gray;
     transition: 0.3s color;
+    pointer-events: all;
 }
 
 .container-map{
-    font-size: 25px;
+    font-size: 23px;
+    font-weight: lighter;
 }
 
 .hovermenu{
@@ -228,7 +232,16 @@ button:focus {outline:0;}
     font-size: 21px;
 }
 
-@media screen and (max-width: 1100px) {
+.logo{
+    font-size: 70px;
+    margin: 0;
+    font-family: 'Rye';
+    padding-top: 30px;
+    font-weight: lighter;
+}
+
+
+@media screen and (max-width: 1200px) {
     .container-map{
         font-size: 20px;
     }
@@ -241,26 +254,37 @@ button:focus {outline:0;}
     .bottom-text{
         font-size: 17px;
     }
+    .container-textboard{
+        font-size: 25px;
+    }
+    .btn{
+        font-size: 25px;
+        border-radius: 12px;
+    }
+    .smallbtn{
+        font-size: 17px;
+        border-radius: 17px;
+    }
 }
 
 @media screen and (max-width: 900px) {
     .container-textboard{
-        font-size: 23px;
+        font-size: 21px;
     }
     .btn{
-        font-size: 22px;
+        font-size: 21px;
         border-radius: 10px;
     }
     .smallbtn{
-        font-size: 15px;
-        border-radius: 15px;
+        font-size: 13px;
+        border-radius: 13px;
     }
     .container-map{
-        font-size: 18px;
+        font-size: 16px;
     }
     .playercard{
-        font-size: 22px;
-        border-radius: 22px;
+        font-size: 16px;
+        border-radius: 16px;
     }
     .dice{
         font-size: 90px;
@@ -277,11 +301,14 @@ button:focus {outline:0;}
     .bottom-text{
         font-size: 10px;
     }
+    .container-game{
+        height: 40vw;
+    }
 }
 
 @media screen and (max-width: 700px) {
     .container-map{
-        font-size: 15px;
+        font-size: 14px;
     }
     .btn{
         font-size: 18px;
@@ -313,6 +340,15 @@ button:focus {outline:0;}
     .card-2{
         font-size: 40px;
     }
+    .logo{
+        font-size: 60px;
+    }
+}
+
+@media screen and (max-height: 660px) {
+    .container-textboard{
+        font-size: 20px;
+    }
 }
 
 @media screen and (max-width: 580px) {
@@ -326,15 +362,25 @@ button:focus {outline:0;}
         font-size: 13px;
         border-radius: 5px;
     }
-}
-
-@media screen and (max-height: 660px) {
-    .container-textboard{
-        font-size: 20px;
+    .logo{
+        font-size: 45px;
+    }
+    .playercard{
+        font-size: 10px;
+        border-radius: 10px;
     }
 }
 
-@media screen and (max-width: 300px) {
+@media screen and (max-width: 450px) {
+    .container-textboard{
+        font-size: 13px;
+    }
+    .container-game{
+        height: 50vw;
+    }
+}
+
+@media screen and (max-width: 350px) {
     .container-textboard{
         font-size: 13px;
     }

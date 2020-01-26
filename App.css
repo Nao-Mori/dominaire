@@ -155,3 +155,7 @@ button:hover{
   90% { top: 5.5%; left: 55% }
   100% { top: 5%; left: 55% }
 }
+
+.color-pick{
+  color: rgb(241, 147, 58)
+}
