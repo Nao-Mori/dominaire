@@ -4,4 +4,4 @@ https://dominaire.nao-mori.com
 This is my first project called "Dominaire".
 A fun little 3 person strategy board game.
 <br/>
-React.js Hooks&Class-based
+React.js Hooks + Class-based
